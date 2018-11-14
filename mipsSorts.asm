@@ -51,7 +51,7 @@ selectionSort: 	#$a0 is the base of the array number and $a1 is n
 		add $s0, $s0, $zero #c = 0
 		sub $t1, $a1, $t0 #$t1 = n - 1
 for1: 		slt $t2, $s0, $t1
-		beq $t2, $zero, exit
+		beq $t2, $zero, salida
 		sub $s2, $s2, $s2 #$s2 = 0
 		add $s2, $s2, $s0 #position = c
 		addi $t3, $s0, 1 #$t3 = c + 1
@@ -78,7 +78,7 @@ if: 		beq $s2, $s0, iter1
 		sw $s3, 0($t5) #array[position] = swap
 iter1: 		addi $s0, $s0, 1
 		j for1
-exit: 		lw $s3, 0($sp)
+salida: 	lw $s3, 0($sp)
 		lw $s2, 4($sp)
 		lw $s1, 8($sp)
 		lw $s0, 12($sp)
@@ -111,3 +111,22 @@ number: .word 34
 	.word 66
 	.word 43
 	.word 50
+	
+size:	.word 25
+
+spacebar: .asciiz " "
+
+line:	.asciiz	"\n"		# a newline string.
+
+colonsp:	.asciiz ": "	# a colon string with space.
+
+.text
+
+.globl main
+
+main:
+
+la $a0, number
+lw $a1, size
+syscall
+jal insertionsort
