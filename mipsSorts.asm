@@ -1,10 +1,12 @@
-insertionsort: 	addi $t2, $t2, 1 
+insertionsort: 	
+		addi $t2, $t2, 1 
 		addi $sp, $sp, -12
 		sw $s0, 8($sp) #$s0 = i
 		sw $s1, 4($sp) #s1 = j
 		sw $s2, 0($sp) #s2 = temp
 		addi $s1, $s1, 1
-for: 		slt $t0, $s1, $a1
+for: 		
+		slt $t0, $s1, $a1
 		beq $t0, $zero, exit
 		sll $t1, $s0, 2
 		add $t1, $t1, $a0

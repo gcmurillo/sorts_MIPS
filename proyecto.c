@@ -29,9 +29,11 @@ void quicksort(int * number,int first,int last){
       quicksort(number,first,j-1);
       quicksort(number,j+1,last);
 
-   }
+  }
 
-void insertionsort(int number[25], int count){
+}
+
+void insertionsort(int number[25], int count) {
    int i, j, temp;
    for(i=1;i<count;i++){
       temp=number[i];
@@ -45,19 +47,18 @@ void insertionsort(int number[25], int count){
 }
 
 void desordenar(int count, int number[25], int temp[25]){
-   bool usado[count];
-   for (int i=0; i < count; i++)
+    bool usado[count];
+    for (int i=0; i < count; i++)
        usado[i]=false;
 
-   int index=0;
-   for (int i=0; i < count; i++){
+    int index=0;
+    for (int i=0; i < count; i++){
        do{
            index = (rand() % 44);
        }while (usado[index]==false);
-         number[i] = temp[index];
-         usado[index]=true;
-      }
-   }
+        number[i] = temp[index];
+        usado[index]=true;
+    }
 }
 
 void selectionsort(int array[25], int n){
