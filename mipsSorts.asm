@@ -1,50 +1,50 @@
-	.data
-number: .word 34
-	.word 2
-	.word 19
-	.word 9
-	.word 1
-	.word 23
-	.word 45
-	.word 3
-	.word 44
-	.word 98
-	.word 123
-	.word 21
-	.word 45
-	.word 29
-	.word 56
-	.word 4
-	.word 21
-	.word 45
-	.word 89
-	.word 43
-	.word 3
-	.word 56
-	.word 66
-	.word 43
-	.word 50
-	
-size:	.word 25
+.data
+	number: 
+		.word 34
+		.word 2
+		.word 19
+		.word 9
+		.word 1
+		.word 23
+		.word 45
+		.word 3
+		.word 44
+		.word 98
+		.word 123
+		.word 21
+		.word 45
+		.word 29
+		.word 56
+		.word 4
+		.word 21
+		.word 45
+		.word 89
+		.word 43
+		.word 3
+		.word 56
+		.word 66
+		.word 43
+		.word 50
+		
+	size:	.word 25
 
-spacebar: .asciiz " "
+	spacebar: .asciiz " "
 
-line:	.asciiz	"\n"		# a newline string.
+	line:	.asciiz	"\n"		# a newline string.
 
-colonsp:	.asciiz ": "	# a colon string with space.
+	colonsp:	.asciiz ": "	# a colon string with space.
 
 .text
 
-.globl main
+	.globl main
 
 main:
-
-la $a0, number
-lw $a1, size
-# syscall
-jal insertionsort
-li	$v0, 10		# system call code for exit = 10
-syscall
+	la $a0, number
+	lw $a1, size
+	# syscall
+	jal insertionsort
+	li	$v0, 10		# system call code for exit = 10
+	syscall
 
 insertionsort: 	# a1 = count | a0 = number
 	addi $t2, $t2, 1 
