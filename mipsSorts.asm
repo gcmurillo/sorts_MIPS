@@ -1,30 +1,6 @@
 .data
-	number: 
-		.word 34
-		.word 2
-		.word 19
-		.word 9
-		.word 1
-		.word 23
-		.word 45
-		.word 3
-		.word 44
-		.word 98
-		.word 123
-		.word 21
-		.word 45
-		.word 29
-		.word 56
-		.word 4
-		.word 21
-		.word 45
-		.word 89
-		.word 43
-		.word 3
-		.word 56
-		.word 66
-		.word 43
-		.word 50
+
+	number: .word 34, 2, 19, 9, 1, 23, 45, 3, 44, 98, 123, 21, 45, 29, 56, 4, 21, 45, 89, 43, 3, 56, 66, 43, 50
 		
 	size:	.word 25
 
