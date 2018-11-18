@@ -3,70 +3,6 @@
 
 typedef enum {false, true} bool;
 
-/*
-void quicksort(int *number, int first, int last){
-  int i, j, pivot, temp;
-  if(first<last){
-    pivot=first;
-    i=first;
-    j=last;
-
-    while(i<j){
-      while(number[i]<=number[pivot]&&i<last)
-      i++;
-      while(number[j]>number[pivot])
-        j--;
-      if(i<j){
-        temp=number[i];
-        number[i]=number[j];
-        number[j]=temp;
-      }
-    }
-    
-    temp=number[pivot];
-    number[pivot]=number[j];
-    number[j]=temp;
-    quicksort(number,first,j-1);
-    quicksort(number,j+1,last);
-  }
-
-}
-
-void counting_sort(int A[25], int n) {
-
-  printf("inicio");
-  int i, j, k = 0;
-  int B[30], C[100];
-
-  for (i = 0; i < n; i++)
-  {
-    if (A[i] > k) {
-      k = A[i];
-    }
-  }
-  printf("%d", k);
-  for (i = 0; i <= k; i++)
-    C[i] = 0;
-
-  for (j = 1; j <= n; j++)
-    C[A[j]] = C[A[j]] + 1;
-
-  for (i = 1; i <= k; i++)
-    C[i] = C[i] + C[i-1];
-
-  for (j = n; j >= 1; j--) {
-    B[C[A[j]]] = A[j];
-    C[A[j]] = C[A[j]] - 1;
-  }
-
-  printf("The Sorted array is : ");
-
-  for (i = 1; i <= n; i++)
-    printf("%d ", B[i]);
-
-}
-*/
-
 void insertionsort(int number[25], int count) {
    int i, j, temp;
    for(i=1;i<count;i++){
@@ -119,20 +55,6 @@ int main(){
   int number[25] = {34, 2, 19, 9, 1, 23, 45, 3, 44, 98, 123, 21, 45, 29, 56, 4, 21, 45, 89, 43, 3, 56, 66, 43, 123};
 
   printf("Programa para ordenar arreglos de maximo 25 elementos\n");
-   
-  /*
-  quicksort(number,0,25);
-  counting_sort(number, 25);
-  
-  printf("Order of Sorted elements with QuickSort: ");
-  for(i=0;i<25;i++)
-    printf(" %d",number[i]);
-
-  for(int j = 0; j < 25; j++)
-    temp[j] = number[j];
-  
-  desordenar(25, number, temp);
-  */
 
   insertionsort(number, 25);
 
@@ -151,6 +73,5 @@ int main(){
   printf("\n");
     
   return 0;
-
 
 }
