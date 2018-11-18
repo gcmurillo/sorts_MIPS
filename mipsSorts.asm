@@ -15,13 +15,12 @@
 	.globl main
 
 main:
-	la $a0, number
-	lw $a1, size
-	jal PRINT
-	# syscall
-	jal insertionsort
-	# jal selectionSort
-	jal PRINT
+	la $a0, number  # establecemos $a0 como cabeza del array
+	lw $a1, size  # le otorgamos el tamano del arreglo
+	jal PRINT  # imprimimos los valores del arreglo
+	jal insertionsort  # llamamos a la funcion Insertion Sort
+ 	jal selectionSort  # llamamos a la funcion Insertion Sort
+	jal PRINT  # imprimimos nuevamente
 	li $v0, 10                
     syscall
 
@@ -41,6 +40,9 @@ LOOP:
     b LOOP
 
 END:
+	la $a0, line           # imprime un space
+    li $v0, 4         # imprime string  
+	syscall   
     jr $ra
 
 insertionsort: 	# a1 = count | a0 = number
