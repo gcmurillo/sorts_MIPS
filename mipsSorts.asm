@@ -1,7 +1,7 @@
 .data
 
 	number: .word 34, 2, 19, 9, 1, 23, 45, 3, 44, 98, 123, 21, 45, 29, 56, 4, 21, 45, 89, 43, 3, 56, 66, 43, 50
-		
+
 	size:	.word 25
 
 	spacebar: .asciiz " "
@@ -17,10 +17,31 @@
 main:
 	la $a0, number
 	lw $a1, size
+	jal PRINT
 	# syscall
 	jal insertionsort
-	li	$v0, 10		# system call code for exit = 10
-	syscall
+	# jal selectionSort
+	jal PRINT
+	li $v0, 10                
+    syscall
+
+PRINT:          			# Funcion imprimir
+    li $s0, 0                 #i=0
+    la $s1, number                 #$s1=number[0]
+LOOP:
+    bge $s0, $a1, END         # if i >=size goto END
+    lw $a0, ($s1)             #  $a0 = number[i]
+    li $v0, 1         # aqui imprime          
+    syscall
+    la $a0, spacebar           # imprime un space
+    li $v0, 4         # imprime string               
+    syscall
+    addi $s1, $s1, 4          # siguiente elemento number[i+1]
+    addi $s0, $s0, 1          #i++
+    b LOOP
+
+END:
+    jr $ra
 
 insertionsort: 	# a1 = count | a0 = number
 	addi $t2, $t2, 1 
